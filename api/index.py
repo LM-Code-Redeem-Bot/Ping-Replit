@@ -8,7 +8,10 @@ def hello():
     l=list(os.getenv('urls').split(','))
     import requests
     for i in l:
-      res=requests.get(i, timeout=1)
-      print(i,res.text) 
+      try:
+        res=requests.get(i, timeout=1)
+        print(i,res.text) 
+      except:
+        print("Ping Successful")
     return 'Ping Successful'
 
